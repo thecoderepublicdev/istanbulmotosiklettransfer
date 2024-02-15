@@ -1,11 +1,13 @@
+import Link from 'next/link'
+
 function Title({children}) {
     return <h2 className="font-bold text-3xl tracking-tighter">{children}</h2>
 }
 function Description({children}) {
     return <p className="text-xl text-black/50">{children}</p>
 }
-function Button({link, children}) {
-    return <a href={link} className="block rounded-xl border border-gray-300 px-8 py-4 font-bold cursor-pointer hover:bg-gray-100 w-fit">{children}</a>
+function Button({url, target, children}) {
+    return <a href={url} target={target} rel='nofollow external' className="block rounded-xl border border-gray-300 px-8 py-4 font-bold cursor-pointer hover:bg-gray-100 w-fit">{children}</a>
 }
 function Icon({children}) {
     return(
@@ -24,7 +26,7 @@ export default function ContactChannelBox({children}) {
     }
 
     return(
-        <div className="bg-white rounded-xl p-6 flex gap-4 justify-between flex-col">
+        <div className="bg-white relative rounded-xl p-6 flex gap-4 justify-between flex-col">
             {Childrens.Icon}
             <div className="grid gap-2">
                 {Childrens.Title}

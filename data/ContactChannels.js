@@ -4,8 +4,9 @@ export const ContactChannels = [
         title: 'Telefon Numaramız',
         description: '+90 531 500 20 67',
         button: {
-            url: 'tel:+90 531 500 20 67',
-            label: 'Ara'
+            url: 'tel:+905315002067',
+            label: 'Ara',
+            target: '_self'
         }
     },
     {
@@ -13,8 +14,9 @@ export const ContactChannels = [
         title: 'WhatsApp',
         description: '+90 531 500 20 67',
         button: {
-            url: 'https://wa.me/+90 531 500 20 67',
-            label: 'Mesaj Gönder'
+            url: 'https://wa.me/+905315002067?text=Merhaba, Motosiktlet Transferi Hakkında Bilgi Almak İstiyorum.',
+            label: 'Mesaj Gönder',
+            target: '_blank'
         }
     },
     {
@@ -23,7 +25,8 @@ export const ContactChannels = [
         description: '@istanbulmotosiklettransfer',
         button: {
             url: 'https://www.instagram.com/istanbulmotosiklettransfer',
-            label: 'Takip Et'
+            label: 'Takip Et',
+            target: '_blank'
         }
     }
 ]

@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { useRef } from "react";
 import ContactChannelBox from "@components/layout/contact/ContactChannelBox";
 import Head  from "next/head";
+import Turkey from "@data/Turkey";
 
 
 export default function ServicesTransferSlugHandler() {
@@ -14,7 +15,8 @@ export default function ServicesTransferSlugHandler() {
     const contentRef = useRef()
     const currentPageSlug = router.query.region;
     const article = SEOArticles.find(article => article['title'] == currentPageSlug)
-    const RegionTitle = router?.query?.region;
+    const cities = router.asPath.replace('/','').split("-");
+    const RegionTitle = `${Turkey[cities[0]] ?? ''} - ${Turkey[cities[1]] ?? ''}`;
     const title = `${RegionTitle} Motosiklet Transferi | İstanbul Motosiklet Transfer`;
     const desc = `İstanbul Motosiklet Transfer olarak ${RegionTitle} arası tüm motosiklet transferlerinizi sigortalı bir biçimde gerçekleştiriyoruz.`
     const keywords = `${RegionTitle} motosiklet transferi, istanbul motosiklet transfer, motosiklet transfer`

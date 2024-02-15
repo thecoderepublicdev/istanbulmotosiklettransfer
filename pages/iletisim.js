@@ -21,7 +21,7 @@ export default function ContactPage() {
                             <ContactChannelBox.Description>
                                 {channel.description}
                             </ContactChannelBox.Description>
-                            <ContactChannelBox.Button url={channel.button.url}>
+                            <ContactChannelBox.Button url={channel.button.url} target={channel.button.target}>
                                 {channel.button.label}
                             </ContactChannelBox.Button>
                         </ContactChannelBox>

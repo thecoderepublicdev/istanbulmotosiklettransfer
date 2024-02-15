@@ -2,7 +2,7 @@ import Logo from "@components/shared/Logo";
 import Turkey from "@data/Turkey";
 import TCRBadge from "./TCRBadge";
 import Link from 'next/link'
-import { replaceTurkishCharacters } from "@hooks/createSlug";
+import { createSlug } from "@hooks/createSlug";
 export default function Footer({childrens}) {
     return(
         <footer className="py-12 bg-black">
@@ -18,12 +18,12 @@ export default function Footer({childrens}) {
                 <div className="py-8 grid gap-4">
                     <label className="font-bold text-xl text-white py-4 border-b border-gray-500">Hizmet Verdiğimiz Bölgeler</label>
                     <ul className="grid lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-6 gap-2">
-                        {Turkey.map((region, key) => (
+                        {Object.entries(Turkey).map(([key, region]) => (
                             <li key={key}>
-                                <Link className="text-white/50 hover:text-white transition-all border border-transparent hover:border-white ease-in-out block p-4 rounded-xl hover:bg-white/10 cursor-pointer" href={{
-                            pathname: `/hizmetlerimiz/transfer/istanbul-${replaceTurkishCharacters(region.toLowerCase())}-motosiklet-transfer-hizmeti`,
-                            query: {region: `İstanbul-${region}`}
-                        }} title={`${region} Motosiklet Transfer`}>{region}</Link>
+                                <Link 
+                                className="text-white/50 hover:text-white transition-all border border-transparent hover:border-white ease-in-out block p-4 rounded-xl hover:bg-white/10 cursor-pointer"
+                                 href={`/istanbul-${createSlug(region)}-motosiklet-transfer-hizmeti`}
+                                 title={`${region} Motosiklet Transfer`}>{region}</Link>
                             </li>
                         ))}
                     </ul>
