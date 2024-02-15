@@ -1,17 +1,28 @@
 {
   "name": "istanbul-motosiklet-transfer",
   "version": "0.1.0",
+  "main": "server.js",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "rm -rf .next && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy2": "cross-env NODE_ENV=production firebase deploy --only functions,hosting",
+    "deploy": "firebase deploy --only functions,hosting"
   },
   "dependencies": {
+    "classnames": "^2.5.1",
+    "firebase": "^10.7.2",
+    "firebase-admin": "^12.0.0",
+    "firebase-functions": "^4.6.0",
+    "material-symbols": "^0.14.5",
+    "next": "14.0.4",
     "react": "^18",
+    "react-content-loader": "^6.2.1",
     "react-dom": "^18",
-    "next": "14.0.4"
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",

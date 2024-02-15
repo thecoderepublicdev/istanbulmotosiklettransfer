@@ -1,118 +1,88 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import { Layout } from "@components/layout";
+import Masthead from "@components/layout/masthead/Masthead";
+import RegionList from "@components/services/RegionList";
 
-const inter = Inter({ subsets: ['latin'] })
+const WhyChooseUs = [
+  {
+    title: 'Uzman Ekibimiz',
+    description: 'İstanbul Motosiklet Transfer, motosiklet taşıma konusunda uzmanlaşmış bir ekip tarafından yönetilmektedir. Motosikletiniz, deneyimli ve eğitimli profesyoneller tarafından güvenle taşınır.'
+  },
+  {
+    title: 'Güvenli Taşıma',
+    description: 'Motosikletiniz, özel olarak tasarlanmış taşıma araçlarımızda emniyetli bir şekilde yer alır. Titizlikle paketlenir ve seyahat süreci boyunca herhangi bir hasarı önlemek için özel önlemler alınır.'
+  },
+  {
+    title: 'Hızlı & Zamanında Teslimat',
+    description: 'İstanbul Motosiklet Transfer, zamanınızın değerli olduğunun farkındadır. Motosikletinizi belirttiğiniz adrese hızlı ve zamanında teslim etmek için çaba gösteriyoruz.'
+  },
+  {
+    title: 'Fiyat/Performans Dengesi',
+    description: 'Kaliteli hizmetimiz, uygun fiyatlarla sunulur. İstanbul Motosiklet Transfer, bütçenize uygun motosiklet taşıma çözümleri sunar.'
+  }
+];
 
-export default function Home() {
-  return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+const Services = [
+  {
+    title: 'İstanbul içi motosiklet transferi',
+    description: 'İstanbul içerisinde günün dilediğiniz saatinde hizmetinizdeyiz.'
+  },
+  {
+    title: 'Şehirlerarası motosiklet taşıma',
+    description: "Türkiye'nin dört bir köşesinde karşılıklı olarak transfer hizmeti sunmaktayız."
+  },
+  {
+    title: 'Hızlı ve güvenli teslimat',
+    description: 'Tüm transferlerimiz sigorta kapsamında yapılmaktadır.'
+  },
+  {
+    title: 'Uygun fiyat garantisi',
+    description: 'Rakiplerimizin arasında en uygun fiyatlısı ve en profesyoneliyiz.'
+  },
+]
+
+export default function App() {
+  return(
+    <Layout>
+      <Masthead>
+        <Masthead.Title>Transfer & Yol Yardım Hizmeti</Masthead.Title>
+        <Masthead.Description>
+          İstanbul'un karmaşık trafiği içinde motosikletinizle seyahat etmek zorlayıcı olabilir. Ancak, <strong>İstanbul Motosiklet Transfer</strong> olarak, motosikletinizi güvenli ve hızlı bir şekilde taşımak için buradayız. Sizin için özel olarak tasarlanmış hizmetlerimizle motosikletinizi güvenle yerine ulaştırıyoruz.
+        </Masthead.Description>
+      </Masthead>
+
+      <div className="container p-4 lg:mx-auto 2xl:mx-auto xl:mx-auto xl:max-w-screen-2xl 2xl:max-w-screen-2xl lg:max-w-screen-2xl py-8 grid gap-4">
+        <div className="grid lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-1 overflow-hidden rounded-xl bg-gradient-to-br from-[#004225] to-green-700">
+          {Services.map((service, key) => (
+            <div key={key} className="lg:min-h-[200px] 2xl:min-h-[200px] xl:min-h-[200px] lg:border-r-2 2xl:border-r-2 xl:border-r-2 border-white last:border-0 p-8 flex justify-center items-start content-center">
+              <div className="grid gap-2">
+                <h3 className="tracking-tighter	font-bold text-white text-2xl text-left">{service.title}</h3>
+                <p className="text-lg text-white/50">{service.description}</p>
+              </div>
+            </div>
+          ))} 
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="container mx-auto max-w-screen-2xl py-8 grid gap-4 p-4">
+        <h2 className="text-4xl font-bold tracking-tighter text-[#004225]">Neden bizi tercih etmelisiniz?</h2>
+        <div className="grid grid-cols-1 2xl:grid-cols-2 xl:grid-cols-2 lg:grid-cols-2 gap-4">
+          {WhyChooseUs.map((item, key) => (
+            <div key={key} className="min-h-[300px] bg-white p-8 rounded-xl flex justify-center items-center content-center">
+              <div className="grid gap-4">
+                <h3 className="font-bold tracking-tighter	 text-[#004225] text-3xl text-left">{item.title}</h3>
+                <p className="text-lg text-black/50">{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className="bg-[#004225] p-4">
+        <div className="container mx-auto max-w-screen-2xl py-8 grid gap-4">
+          <h2 className="text-4xl font-bold tracking-tighter text-white">Hizmet Verdiğimiz Bölgeler</h2>
+          <RegionList/>
+        </div>
       </div>
-    </main>
+    </Layout>
   )
 }
