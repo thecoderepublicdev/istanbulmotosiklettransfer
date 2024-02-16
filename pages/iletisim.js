@@ -28,6 +28,7 @@ export default function ContactPage() {
                     ))}
                 </Grid>
             </Container>
+            <div className="mb-10"></div>
         </Layout>
     )
 }

@@ -2,7 +2,6 @@ import Logo from "@components/shared/Logo";
 import Turkey from "@data/Turkey";
 import TCRBadge from "./TCRBadge";
 import Link from 'next/link'
-import { createSlug } from "@hooks/createSlug";
 export default function Footer({childrens}) {
     return(
         <footer className="py-12 bg-black">
@@ -10,7 +9,7 @@ export default function Footer({childrens}) {
                 <div className="grid grid-cols-3">
                     <div>
                         <Logo width={10} orientation="vertical" color="White">
-                            <Logo.AltText>İstanbul Motosiklet Transfer | Transfer & Yol Yardım Hizmeti</Logo.AltText>
+                            İstanbul Motosiklet Transfer | Transfer & Yol Yardım Hizmeti
                         </Logo>
                     </div>
                 </div>
@@ -18,11 +17,11 @@ export default function Footer({childrens}) {
                 <div className="py-8 grid gap-4">
                     <label className="font-bold text-xl text-white py-4 border-b border-gray-500">Hizmet Verdiğimiz Bölgeler</label>
                     <ul className="grid lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-6 gap-2">
-                        {Object.entries(Turkey).map(([key, region]) => (
-                            <li key={key}>
+                        {Object.entries(Turkey).map(([slug, region]) => (
+                            <li key={slug}>
                                 <Link 
                                 className="text-white/50 hover:text-white transition-all border border-transparent hover:border-white ease-in-out block p-4 rounded-xl hover:bg-white/10 cursor-pointer"
-                                 href={`/istanbul-${createSlug(region)}-motosiklet-transfer-hizmeti`}
+                                 href={`/istanbul-${slug}-motosiklet-transfer-hizmeti`}
                                  title={`${region} Motosiklet Transfer`}>{region}</Link>
                             </li>
                         ))}

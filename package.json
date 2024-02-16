@@ -22,7 +22,6 @@
     "react-content-loader": "^6.2.1",
     "react-dom": "^18",
     "react-markdown": "^9.0.1",
-    "react-slugify": "^3.0.3",
     "remark-gfm": "^4.0.0"
   },
   "devDependencies": {

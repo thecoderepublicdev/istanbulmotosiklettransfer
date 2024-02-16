@@ -6,7 +6,7 @@ export default function Header() {
         <header className="mb-4">
             <div className="container max-w-screen-2xl mx-auto py-4 flex flex-col lg:flex-row xl:flex-row 2xl:flex-row gap-8 justify-between align-center items-center content-center">
                 <Logo>
-                    <Logo.AltText>İstanbul Motosiklet Transfer | İstanbul Motosiklet Yol Yardım | İstanbul Motosiklet Transfer Hizmeti </Logo.AltText>
+                    İstanbul Motosiklet Transfer | İstanbul Motosiklet Yol Yardım | İstanbul Motosiklet Transfer Hizmeti 
                 </Logo>
 
                 <Navigation>

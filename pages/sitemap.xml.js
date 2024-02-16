@@ -1,5 +1,4 @@
 import Turkey from '@data/Turkey';
-import { createSlug } from "@hooks/createSlug";
 const URL = "https://istanbulmotosiklettransfer.com/";
 function generateSiteMap(pages) {
 return `<?xml version="1.0" encoding="UTF-8"?>
