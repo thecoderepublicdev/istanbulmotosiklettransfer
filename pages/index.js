@@ -1,6 +1,8 @@
 import { Layout } from "@components/layout";
 import Masthead from "@components/layout/masthead/Masthead";
 import RegionList from "@components/services/RegionList";
+import Head  from "next/head";
+
 
 const WhyChooseUs = [
   {
@@ -40,9 +42,39 @@ const Services = [
   },
 ]
 
+
+const Seo = {
+  title: "İstanbul Şehir İçi, Şehirler Arası Motosiklet Transferi",
+  desc:"İstanbul içi ve şehirler arası motosiklet transferi için bize ulaşın +90 531 500 20 67",
+  keywords:"istanbul motosiktlet transfer, moto transfer, şehirler arası moto transfer, şehirler arası motosiklet transferi",
+  url: "https://istanbulmotosiklettransfer.com/",
+  canonical: "https://istanbulmotosiklettransfer.com/",
+}
+
 export default function App() {
   return(
     <Layout>
+      <Head>
+          <title>{Seo.title}</title>
+          <meta name="description" content={Seo.desc}/>
+          <meta name="keywords" content={Seo.keywords}/>
+          <meta name="revisit-after" content="3 days"/>
+          <meta http-equiv="Pragma" content="public"/>
+          <meta http-equiv="Expires" content="7"/>
+          <meta http-equiv="Cache-Control" content="max-age=604800, public"/>
+          <meta name="apple-touch-fullscreen" content="YES"/>
+          <meta name="apple-mobile-web-app-capable" content="yes"/>
+          <meta name="mobile-web-app-capable" content="yes"/>
+          <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+          <meta property="og:url" content={Seo.url}/>
+          <meta property="og:type" content="article"/>
+          <meta property="og:title" content={Seo.title}/>
+          <meta property="og:description" content={Seo.desc}/>
+          <meta name="twitter:card" content="summary_large_image"/>
+          <meta name="twitter:domain" content="istanbulmotosiklettransfer.com"/>
+          <meta name="twitter:url" content={Seo.url}/>
+          <link rel="canonical" href={Seo.url}/>
+      </Head>
       <Masthead>
         <Masthead.Title>Transfer & Yol Yardım Hizmeti</Masthead.Title>
         <Masthead.Description>
@@ -55,7 +87,7 @@ export default function App() {
           {Services.map((service, key) => (
             <div key={key} className="lg:min-h-[200px] 2xl:min-h-[200px] xl:min-h-[200px] lg:border-r-2 2xl:border-r-2 xl:border-r-2 border-white last:border-0 p-8 flex justify-center items-start content-center">
               <div className="grid gap-2">
-                <h3 className="tracking-tighter	font-bold text-white text-2xl text-left">{service.title}</h3>
+                <div className="tracking-tighter	font-bold text-white text-2xl text-left">{service.title}</div>
                 <p className="text-lg text-white/50">{service.description}</p>
               </div>
             </div>
@@ -69,8 +101,8 @@ export default function App() {
           {WhyChooseUs.map((item, key) => (
             <div key={key} className="min-h-[300px] bg-white p-8 rounded-xl flex justify-center items-center content-center">
               <div className="grid gap-4">
-                <h3 className="font-bold tracking-tighter	 text-[#004225] text-3xl text-left">{item.title}</h3>
-                <p className="text-lg text-black/50">{item.description}</p>
+                <div className="font-bold tracking-tighter	 text-[#004225] text-3xl text-left">{item.title}</div>
+                <p className="text-lg text-black">{item.description}</p>
               </div>
             </div>
           ))}
