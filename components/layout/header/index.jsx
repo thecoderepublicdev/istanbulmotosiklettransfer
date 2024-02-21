@@ -13,6 +13,7 @@ export default function Header() {
                     <Navigation.Item url="/" title="İstanbul Motosiklet Transfer | Yol Yardım & Motosiklet Transfer">Ana Sayfa</Navigation.Item>
                     <Navigation.Item url="/hizmetlerimiz" title="Hizmetlerimiz | İstanbul Motosiklet Transfer">Hizmetlerimiz</Navigation.Item>
                     <Navigation.Item url="/iletisim" title="İletişim | İstanbul Motosiklet Transfer">İletişim</Navigation.Item>
+                    <Navigation.Item url="tel:+90 531 500 20 67" title="İstanbul Motosiklet Transfer İletişim Numarası | +90 531 500 20 67">+90 531 500 20 67</Navigation.Item>
                 </Navigation>
             </div>
         </header>
